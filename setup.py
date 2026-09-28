@@ -142,7 +142,7 @@ setup(
     version=version_ns["__version__"],
     author="BATsim developers",
     license="MIT",
-    python_requires=">=3.10",
+    python_requires=">=3.11",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     classifiers=[
