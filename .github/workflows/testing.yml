@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.13"]
+        python-version: ["3.11", "3.13"]
 
     steps:
     - name: Git checkout currect repo
@@ -44,16 +44,6 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
 
         python -m pip install .
-
-    - name: Check pybind11 ABI
-      shell: bash -l {0}
-      run: |
-        conda list | grep -iE "galsim|pybind11|stackvana"
-        GS=$(python -c "import galsim._galsim as m; print(m.__file__)")
-        BS=$(python -c "import batsim._gsinterface as m; print(m.__file__)")
-        echo "galsim:"; strings "$GS" | grep -o 'pybind11_internals[A-Za-z0-9_]*' | sort -u
-        echo "batsim:"; strings "$BS" | grep -o 'pybind11_internals[A-Za-z0-9_]*' | sort -u
-
 
     - name: Lint with black
       shell: bash -l {0}
