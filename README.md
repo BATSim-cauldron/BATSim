@@ -80,7 +80,7 @@ configured, specifically, conda-forge.
 First, clone the repository and switch to the repository root:
 
 ```bash
-git clone https://github.com/CMacM/BATSim.git
+git clone https://github.com/BATSim-cauldron/BATSim.git
 cd BATSim
 ```
 
@@ -89,14 +89,14 @@ cd BATSim
 Create and activate a build environment:
 
 ```bash
-mamba create -n batsim -c conda-forge -c defaults python=3.11 conda-build boa
+mamba create -n batsim -c conda-forge -c defaults conda-build boa
 mamba activate batsim
 ```
 
 Build the package (this may take some time):
 
 ```bash
-conda mambabuild --override-channels -c conda-forge -c defaults conda/recipe --python 3.11
+conda mambabuild --override-channels -c conda-forge -c defaults conda/recipe
 ```
 
 This creates an isolated build environment, installs dependencies, compiles the
@@ -126,12 +126,11 @@ without reinstalling:
 
 ```bash
 mamba create -n batsim-dev -c conda-forge -c defaults \
-    python=3.11 \
     compilers \
     llvm-openmp \
     galsim \
     eigen \
-    "pybind11>=3,<3.1" \
+    pybind11 \
     numpy \
     fitsio \
     astropy \

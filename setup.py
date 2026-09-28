@@ -140,10 +140,9 @@ gsinterface = Extension(
 setup(
     name="batsim",
     version=version_ns["__version__"],
-    author="Charlie MacMahon, Andy Park",
-    author_email="c.macmahon@ncl.ac.uk, chanhyup@andrew.cmu.edu",
+    author="BATsim developers",
     license="MIT",
-    python_requires=">=3.10,<3.13",
+    python_requires=">=3.11",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     classifiers=[
@@ -159,11 +158,11 @@ setup(
     ext_modules=[gsinterface],
     cmdclass={"build_ext": BuildExt},
     install_requires=[
-        "numpy>=1.26,<2.0",
+        "numpy>=1.26",
         "galsim",
         "fitsio",
-        "matplotlib>=3.8,<3.9",
-        "astropy>=6.0,<6.1",
+        "matplotlib>=3.8",
+        "astropy>=6.0",
     ],
     extras_require={
         "benchmark": ["asv>=0.6"],
