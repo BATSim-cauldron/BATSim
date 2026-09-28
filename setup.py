@@ -140,8 +140,7 @@ gsinterface = Extension(
 setup(
     name="batsim",
     version=version_ns["__version__"],
-    author="Charlie MacMahon, Andy Park",
-    author_email="c.macmahon@ncl.ac.uk, chanhyup@andrew.cmu.edu",
+    author="BATsim developers",
     license="MIT",
     python_requires=">=3.10",
     long_description=open("README.md").read(),
