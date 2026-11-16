@@ -153,3 +153,9 @@ _html/
 # Test save files
 /notebooks/validation/COSMOS_lensed/
 /notebooks/validation/*.png 
+/notebooks/validation/COSMOS_lensed_nov/
+/notebooks/validation/COSMOS_lensed_nov_neg/
+/notebooks/validation/*.npy
+/notebooks/validation/*.npz
+/notebooks/validation/*.pdf
+/notebooks/validation/*.pkl
