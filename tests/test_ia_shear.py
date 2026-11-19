@@ -139,7 +139,7 @@ NON_NEGATIVE_BETAS = [0.0, 0, 1.0e-6, 0.8]
 
 @pytest.mark.parametrize("beta", NEGATIVE_BETAS)
 def test_ia_transform_rejects_negative_beta(beta):
-    with pytest.raises(ValueError, match="beta must be >=0"):
+    with pytest.raises(ValueError, match="In IATransform: beta must be >= 0"):
         batsim.IaTransform(A=0.2, beta=beta, phi=0.0, scale=0.2, hlr=1.4)
 
 
