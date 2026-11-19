@@ -421,8 +421,8 @@ class IaTransform(Transform):
         super().__init__(center=center, backend=backend, dtype=dtype)
 
         # Check if beta is negative; if yes, throw an error.
-        if beta<0:
-            raise ValueError('In IATransform: beta must be >=0')
+        if beta < 0:
+            raise ValueError("In IATransform: beta must be >= 0'")
 
         # initialise important class variables
         self.A = A
