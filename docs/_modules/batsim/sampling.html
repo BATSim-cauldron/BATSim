@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>batsim.sampling &mdash; batsim 0.0.0 documentation</title>
+  <title>batsim.sampling &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -13,7 +13,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -73,7 +73,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for batsim.sampling</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Real-space GalSim profile sampling helpers.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Real-space GalSim profile sampling helpers."""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
@@ -94,12 +94,12 @@
 <div class="viewcode-block" id="_require_gsinterface">
 <a class="viewcode-back" href="../../autoapi/batsim/sampling/index.html#batsim.sampling._require_gsinterface">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_require_gsinterface</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the compiled C++ sampling backend, or raise a clear error.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Return the compiled C++ sampling backend, or raise a clear error."""</span>
     <span class="k">if</span> <span class="n">_gsinterface</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
-            <span class="s2">&quot;batsim._gsinterface is not compiled. Reinstall BATSim with &quot;</span>
-            <span class="s2">&quot;GalSim&#39;s C++ shared library built and linked. Instructions can be found here: &quot;</span>
-            <span class="s2">&quot;https://galsim-developers.github.io/GalSim/_build/html/install_pip.html#installing-the-c-shared-library&quot;</span>
+            <span class="s2">"batsim._gsinterface is not compiled. Reinstall BATSim with "</span>
+            <span class="s2">"GalSim's C++ shared library built and linked. Instructions can be found here: "</span>
+            <span class="s2">"https://galsim-developers.github.io/GalSim/_build/html/install_pip.html#installing-the-c-shared-library"</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">_gsinterface</span></div>
 
@@ -108,12 +108,12 @@
 <div class="viewcode-block" id="_prepare_transforms">
 <a class="viewcode-back" href="../../autoapi/batsim/sampling/index.html#batsim.sampling._prepare_transforms">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_prepare_transforms</span><span class="p">(</span><span class="n">transform_obj</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Move transform objects to the selected backend once per sampling call.</span>
 
 <span class="sd">    Transforms that do not provide ``to_backend`` are left untouched, which</span>
 <span class="sd">    preserves support for simple user-defined transform objects.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">transform_obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 
@@ -122,7 +122,7 @@
 
     <span class="n">prepared</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">trf</span> <span class="ow">in</span> <span class="n">transform_obj</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">trf</span><span class="p">,</span> <span class="s2">&quot;to_backend&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">trf</span><span class="p">,</span> <span class="s2">"to_backend"</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">trf</span> <span class="o">=</span> <span class="n">trf</span><span class="o">.</span><span class="n">to_backend</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="n">xp</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
@@ -136,11 +136,11 @@
 <div class="viewcode-block" id="_apply_prepared_transforms">
 <a class="viewcode-back" href="../../autoapi/batsim/sampling/index.html#batsim.sampling._apply_prepared_transforms">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_apply_prepared_transforms</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">transform_obj</span><span class="p">,</span> <span class="n">xp</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Apply backend-prepared transforms to a coordinate array.</span>
 
 <span class="sd">    Transforms are applied in the order supplied by the caller.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">coords</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">transform_obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -156,13 +156,13 @@
 <div class="viewcode-block" id="_sample_galaxy_profile">
 <a class="viewcode-back" href="../../autoapi/batsim/sampling/index.html#batsim.sampling._sample_galaxy_profile">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_sample_galaxy_profile</span><span class="p">(</span><span class="n">gal_obj</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">fine_scale</span><span class="p">,</span> <span class="n">real_dtype</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Sample the galaxy surface brightness using the compiled C++ backend.</span>
 
 <span class="sd">    The Python renderer keeps coordinates on the selected array backend until</span>
-<span class="sd">    this boundary, then passes NumPy coordinates to GalSim&#39;s C++ API to sample</span>
+<span class="sd">    this boundary, then passes NumPy coordinates to GalSim's C++ API to sample</span>
 <span class="sd">    flux at each coordinate.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">gsinterface</span> <span class="o">=</span> <span class="n">_require_gsinterface</span><span class="p">()</span>
     <span class="n">use_single</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">real_dtype</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
@@ -188,13 +188,13 @@
     <span class="n">integration_order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Sample the locally integrated galaxy profile on the fine simulation grid.</span>
 
 <span class="sd">    For ``integration_order &gt; 1``, each fine pixel is evaluated at</span>
 <span class="sd">    Gauss-Legendre sub-pixel offsets and reduced to one integrated fine-grid</span>
 <span class="sd">    value before returning to the FFT pipeline.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">transform_obj</span> <span class="o">=</span> <span class="n">_prepare_transforms</span><span class="p">(</span>
         <span class="n">transform_obj</span><span class="p">,</span>
         <span class="n">xp</span><span class="o">=</span><span class="n">xp</span><span class="p">,</span>
@@ -231,7 +231,7 @@
     <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
         <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Build coordinates and transforms took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Build coordinates and transforms took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
         <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
@@ -243,7 +243,7 @@
     <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
         <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transfer coords to CPU took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Transfer coords to CPU took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
     <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
@@ -269,7 +269,7 @@
 
     <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Galaxy sampling took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Galaxy sampling took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
     <span class="k">del</span> <span class="n">coords</span>
 
@@ -281,8 +281,8 @@
     <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
         <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
         <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;GPU&quot;</span> <span class="k">if</span> <span class="n">xp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span> <span class="k">else</span> <span class="s2">&quot;NumPy&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transfer galaxy profile to </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="s2">"GPU"</span> <span class="k">if</span> <span class="n">xp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span> <span class="k">else</span> <span class="s2">"NumPy"</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Transfer galaxy profile to </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">gal_prof</span></div>
 
@@ -291,12 +291,12 @@
 <div class="viewcode-block" id="_sample_psf_spectrum">
 <a class="viewcode-back" href="../../autoapi/batsim/sampling/index.html#batsim.sampling._sample_psf_spectrum">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_sample_psf_spectrum</span><span class="p">(</span><span class="n">psf_obj</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fine_scale</span><span class="p">,</span> <span class="n">complex_dtype</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Sample the analytic PSF Fourier transform on an rFFT frequency grid.</span>
 
-<span class="sd">    This backs ``psf_mode=&quot;kvalue&quot;`` and returns a spectrum in the same layout</span>
+<span class="sd">    This backs ``psf_mode="kvalue"`` and returns a spectrum in the same layout</span>
 <span class="sd">    as ``numpy.fft.rfft2``/``cupy.fft.rfft2``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">gsinterface</span> <span class="o">=</span> <span class="n">_require_gsinterface</span><span class="p">()</span>
     <span class="n">sampler</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">gsinterface</span><span class="o">.</span><span class="n">getPsfKValue32</span>

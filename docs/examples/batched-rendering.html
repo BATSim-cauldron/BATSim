@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batched Rendering &mdash; batsim 0.0.0 documentation</title>
+  <title>Batched Rendering &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -99,8 +99,8 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="c1"># This is the key part, and must be run BEFORE Galsim imports</span>
-<span class="n">original_omp_threads</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OMP_NUM_THREADS&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OMP_NUM_THREADS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+<span class="n">original_omp_threads</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'OMP_NUM_THREADS'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'OMP_NUM_THREADS'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'1'</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">batsim</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">galsim</span>
@@ -110,12 +110,12 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="n">cpu_count</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">time</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;serif&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cmr10&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;cm&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">unicode_minus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes.formatter&#39;</span><span class="p">,</span> <span class="n">use_mathtext</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.serif'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cmr10'</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span><span class="s1">'cm'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.facecolor'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'white'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'axes'</span><span class="p">,</span> <span class="n">unicode_minus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'axes.formatter'</span><span class="p">,</span> <span class="n">use_mathtext</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -152,7 +152,7 @@
 <p>When multiple transforms are passed, the are applied in the order they appear in the sequence. Consider we wish to simulate a weak lensing survey with intrinsic alignments. Since IA is a physical distortion, we must apply this transform first, followed by the lensing, as this is an image level effect.</p>
 <p>Because BATSim’s IA shear is calculated as a function of half-light radius, we need to be smart about how we construct this multiprocessing pool.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define image parameters</span>
@@ -185,11 +185,15 @@
     <span class="p">)</span>
 
     <span class="c1"># Call BATSim render passing both transform objects</span>
+    <span class="c1"># Note the order of the transform list must be</span>
+    <span class="c1"># REVERSE physical due to the 'pull' mapping convention:</span>
+    <span class="c1"># the below order assumes IA happens in the source plane</span>
+    <span class="c1"># followed by lensing along the line of sight.</span>
     <span class="n">gal_img</span> <span class="o">=</span> <span class="n">batsim</span><span class="o">.</span><span class="n">simulate_galaxy</span><span class="p">(</span>
         <span class="n">gal_obj</span><span class="o">=</span><span class="n">gal_obj</span><span class="p">,</span>
         <span class="n">ngrid</span><span class="o">=</span><span class="n">ngrid</span><span class="p">,</span>
         <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
-        <span class="n">transform_obj</span><span class="o">=</span><span class="p">[</span><span class="n">ia_transform</span><span class="p">,</span> <span class="n">lens_transform</span><span class="p">],</span>
+        <span class="n">transform_obj</span><span class="o">=</span><span class="p">[</span><span class="n">lens_transform</span><span class="p">,</span> <span class="n">ia_transform</span><span class="p">],</span>
         <span class="n">psf_obj</span><span class="o">=</span><span class="n">psf_obj</span>
     <span class="p">)</span>
 
@@ -211,7 +215,7 @@
 
 <span class="c1"># Set-up pool</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">()</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span> <span class="c1"># Don&#39;t use more than half the available CPUs</span>
+<span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cpu_count</span><span class="p">()</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span> <span class="c1"># Don't use more than half the available CPUs</span>
 
     <span class="c1"># pass function and iterables to be parallel processed</span>
     <span class="n">gal_images</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">batch_batsim</span><span class="p">,</span> <span class="n">iterable</span><span class="o">=</span><span class="n">arg_list</span><span class="p">)</span>
@@ -220,7 +224,7 @@
 <span class="c1"># Get timing metrics</span>
 <span class="n">ptime</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span>
 <span class="n">t_per_gal</span> <span class="o">=</span> <span class="n">ptime</span> <span class="o">/</span> <span class="n">n_gals</span> <span class="c1"># CPU core seconds, since we force 1 gal per thread</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CPU seconds per galaxy:&quot;</span><span class="p">,</span> <span class="n">t_per_gal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"CPU seconds per galaxy:"</span><span class="p">,</span> <span class="n">t_per_gal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -239,7 +243,7 @@ CPU seconds per galaxy: 0.4531566262245178
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># BATSim pltutil includes a function for stitching lists of images into a single</span>
 <span class="c1"># galsim.Image</span>
-<span class="n">gal_scene</span> <span class="o">=</span> <span class="n">batsim</span><span class="o">.</span><span class="n">pltutil</span><span class="o">.</span><span class="n">stitch_images</span><span class="p">(</span><span class="n">gal_images</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+<span class="n">gal_scene</span> <span class="o">=</span> <span class="n">batsim</span><span class="o">.</span><span class="n">pltutil</span><span class="o">.</span><span class="n">stitch_images</span><span class="p">(</span><span class="n">gal_images</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"square"</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">batsim</span><span class="o">.</span><span class="n">pltutil</span><span class="o">.</span><span class="n">make_plot_image</span><span class="p">(</span><span class="n">gal_scene</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 </div>

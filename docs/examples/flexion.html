@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flexion &mdash; batsim 0.0.0 documentation</title>
+  <title>Flexion &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -100,12 +100,12 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsinhNorm</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;serif&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cmr10&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;mathtext.fontset&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s1">&#39;cm&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.facecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">unicode_minus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes.formatter&#39;</span><span class="p">,</span> <span class="n">use_mathtext</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'serif'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.serif'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cmr10'</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'mathtext.fontset'</span><span class="p">]</span> <span class="o">=</span><span class="s1">'cm'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.facecolor'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'white'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'axes'</span><span class="p">,</span> <span class="n">unicode_minus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'axes.formatter'</span><span class="p">,</span> <span class="n">use_mathtext</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -191,7 +191,7 @@ F_1-G_1 &amp; 3F_2-G_2
 <span class="c1"># Compare the two with batsim pltutil</span>
 <span class="n">resid</span> <span class="o">=</span> <span class="n">lens_gal</span> <span class="o">-</span> <span class="n">flex_gal</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">batsim</span><span class="o">.</span><span class="n">pltutil</span><span class="o">.</span><span class="n">make_plot_image</span><span class="p">(</span><span class="n">resid</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total residual:&quot;</span><span class="p">,</span> <span class="n">resid</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total residual:"</span><span class="p">,</span> <span class="n">resid</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -296,14 +296,14 @@ Total residual: 0.0
 
 <span class="c1"># Each dictionary supplies one non-zero flexion component</span>
 <span class="n">flexion_modes</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$+F_1$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=+</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$-F_1$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=-</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$+F_2$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=+</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$-F_2$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=-</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$+G_1$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=+</span><span class="n">G_amp</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$-G_1$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=-</span><span class="n">G_amp</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$+G_2$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=+</span><span class="n">G_amp</span><span class="p">)),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$-G_2$&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=-</span><span class="n">G_amp</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$+F_1$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=+</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$-F_1$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=-</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$+F_2$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=+</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$-F_2$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=-</span><span class="n">F_amp</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$+G_1$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=+</span><span class="n">G_amp</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$-G_1$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=-</span><span class="n">G_amp</span><span class="p">,</span> <span class="n">G2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$+G_2$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=+</span><span class="n">G_amp</span><span class="p">)),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">"$-G_2$"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">F1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">F2</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G1</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">G2</span><span class="o">=-</span><span class="n">G_amp</span><span class="p">)),</span>
 <span class="p">]</span>
 
 <span class="n">flexion_images</span> <span class="o">=</span> <span class="p">[]</span>
@@ -327,12 +327,12 @@ Total residual: 0.0
     <span class="c1"># Support either GalSim Image objects or array-like outputs.</span>
     <span class="n">image</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">flex_gal</span><span class="o">.</span><span class="n">array</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">flex_gal</span><span class="p">,</span> <span class="s2">&quot;array&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">flex_gal</span><span class="p">,</span> <span class="s2">"array"</span><span class="p">)</span>
         <span class="k">else</span> <span class="n">flex_gal</span>
     <span class="p">)</span>
 
     <span class="c1"># Convert CuPy arrays to NumPy if necessary.</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s2">&quot;get&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s2">"get"</span><span class="p">):</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
     <span class="n">flexion_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
@@ -378,22 +378,22 @@ Total residual: 0.0
 <span class="p">):</span>
     <span class="n">artist</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
         <span class="n">image</span><span class="p">,</span>
-        <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
+        <span class="n">origin</span><span class="o">=</span><span class="s2">"lower"</span><span class="p">,</span>
         <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdYlBu_r&quot;</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdYlBu_r"</span><span class="p">,</span>
         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
-        <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
+        <span class="n">interpolation</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
 
 <span class="c1"># Only label the outer axes.</span>
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$ [arcsec]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$x$ [arcsec]"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$ [arcsec]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$y$ [arcsec]"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>

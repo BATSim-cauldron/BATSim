@@ -296,7 +296,7 @@ Module Contents
    :param phi: Alignment angle in radians. A value of zero aligns the distortion with
                the horizontal axis.
    :type phi: float, optional
-   :param beta: Power-law index for the radial amplitude profile.
+   :param beta: Power-law index for the radial amplitude profile. Must not be negative.
    :type beta: float, optional
    :param center: Coordinate origin ``[x, y]`` for the radial profile. Defaults to
                   ``[0, 0]``.
