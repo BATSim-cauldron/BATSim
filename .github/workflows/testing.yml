@@ -28,6 +28,7 @@ jobs:
     - name: Set up Python ${{ matrix.python-version }}
       uses: conda-incubator/setup-miniconda@v2
       with:
+        miniconda-version: "latest"
         python-version: ${{ matrix.python-version }}
         channels: conda-forge
         channel-priority: strict
