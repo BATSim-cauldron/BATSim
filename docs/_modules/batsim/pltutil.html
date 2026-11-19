@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>batsim.pltutil &mdash; batsim 0.0.0 documentation</title>
+  <title>batsim.pltutil &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -13,7 +13,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -73,7 +73,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for batsim.pltutil</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Legacy plotting utilities used by BATSim examples and validation notebooks.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Legacy plotting utilities used by BATSim examples and validation notebooks."""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">galsim</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -83,37 +83,37 @@
 <div class="viewcode-block" id="colors">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.colors">[docs]</a>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#1976D2&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#E53935&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#43A047&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#673AB7&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#4DD0E1&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#E91E63&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#F2D026&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#333333&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#9E9E9E&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#FB8C00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#FFB300&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;#795548&quot;</span><span class="p">,</span>
+    <span class="s2">"#000000"</span><span class="p">,</span>
+    <span class="s2">"#1976D2"</span><span class="p">,</span>
+    <span class="s2">"#E53935"</span><span class="p">,</span>
+    <span class="s2">"#43A047"</span><span class="p">,</span>
+    <span class="s2">"#673AB7"</span><span class="p">,</span>
+    <span class="s2">"#4DD0E1"</span><span class="p">,</span>
+    <span class="s2">"#E91E63"</span><span class="p">,</span>
+    <span class="s2">"#F2D026"</span><span class="p">,</span>
+    <span class="s2">"#333333"</span><span class="p">,</span>
+    <span class="s2">"#9E9E9E"</span><span class="p">,</span>
+    <span class="s2">"#FB8C00"</span><span class="p">,</span>
+    <span class="s2">"#FFB300"</span><span class="p">,</span>
+    <span class="s2">"#795548"</span><span class="p">,</span>
 <span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="cblues">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.cblues">[docs]</a>
-<span class="n">cblues</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#004c6d&quot;</span><span class="p">,</span> <span class="s2">&quot;#346888&quot;</span><span class="p">,</span> <span class="s2">&quot;#5886a5&quot;</span><span class="p">,</span> <span class="s2">&quot;#7aa6c2&quot;</span><span class="p">,</span> <span class="s2">&quot;#9dc6e0&quot;</span><span class="p">,</span> <span class="s2">&quot;#c1e7ff&quot;</span><span class="p">]</span></div>
+<span class="n">cblues</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"#004c6d"</span><span class="p">,</span> <span class="s2">"#346888"</span><span class="p">,</span> <span class="s2">"#5886a5"</span><span class="p">,</span> <span class="s2">"#7aa6c2"</span><span class="p">,</span> <span class="s2">"#9dc6e0"</span><span class="p">,</span> <span class="s2">"#c1e7ff"</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="creds">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.creds">[docs]</a>
-<span class="n">creds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#DC1C13&quot;</span><span class="p">,</span> <span class="s2">&quot;#EA4C46&quot;</span><span class="p">,</span> <span class="s2">&quot;#F07470&quot;</span><span class="p">,</span> <span class="s2">&quot;#F1959B&quot;</span><span class="p">,</span> <span class="s2">&quot;#F6BDC0&quot;</span><span class="p">,</span> <span class="s2">&quot;#F8D8E3&quot;</span><span class="p">]</span></div>
+<span class="n">creds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"#DC1C13"</span><span class="p">,</span> <span class="s2">"#EA4C46"</span><span class="p">,</span> <span class="s2">"#F07470"</span><span class="p">,</span> <span class="s2">"#F1959B"</span><span class="p">,</span> <span class="s2">"#F6BDC0"</span><span class="p">,</span> <span class="s2">"#F8D8E3"</span><span class="p">]</span></div>
 
 
 
 <div class="viewcode-block" id="make_figure_axes">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.make_figure_axes">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">make_figure_axes</span><span class="p">(</span><span class="n">ny</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a Matplotlib figure with one of BATSim&#39;s preset subplot layouts.</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create a Matplotlib figure with one of BATSim's preset subplot layouts.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -136,11 +136,11 @@
 <span class="sd">        Raised if ``ny`` or ``nx`` is not an integer.</span>
 <span class="sd">    ValueError</span>
 <span class="sd">        Raised if the requested layout is not one of the supported presets.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;ny should be integer&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"ny should be integer"</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;nx should be integer&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"nx should be integer"</span><span class="p">)</span>
     <span class="n">axes</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">ny</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">nx</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -181,7 +181,7 @@
             <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
             <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Do not have option: ny=</span><span class="si">%s</span><span class="s2">, nx=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Do not have option: ny=</span><span class="si">%s</span><span class="s2">, nx=</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span></div>
 
 
@@ -189,7 +189,7 @@
 <div class="viewcode-block" id="determine_cuts">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.determine_cuts">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">determine_cuts</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Determine display cuts for image data using fixed percentiles.</span>
 
 <span class="sd">    Parameters</span>
@@ -202,7 +202,7 @@
 <span class="sd">    tuple of float</span>
 <span class="sd">        ``(min_cut, max_cut)`` from the 5th and 98th percentiles of the</span>
 <span class="sd">        flattened input data.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">min_cut</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
     <span class="n">max_cut</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">98</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">min_cut</span><span class="p">,</span> <span class="n">max_cut</span></div>
@@ -212,8 +212,8 @@
 <div class="viewcode-block" id="make_plot_image">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.make_plot_image">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">make_plot_image</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Display image data with BATSim&#39;s default asinh plotting normalisation.</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Display image data with BATSim's default asinh plotting normalisation.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -224,18 +224,18 @@
 <span class="sd">    -------</span>
 <span class="sd">    matplotlib.image.AxesImage</span>
 <span class="sd">        Image artist returned by ``matplotlib.pyplot.imshow``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">min_cut</span><span class="p">,</span> <span class="n">max_cut</span> <span class="o">=</span> <span class="n">determine_cuts</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">sn</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;asinh&quot;</span><span class="p">,</span> <span class="n">asinh_a</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">min_cut</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">max_cut</span><span class="p">)</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdYlBu_r&quot;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">sn</span><span class="p">)</span>
+    <span class="n">sn</span> <span class="o">=</span> <span class="n">simple_norm</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">"asinh"</span><span class="p">,</span> <span class="n">asinh_a</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">min_cut</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">max_cut</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"equal"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdYlBu_r"</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">"lower"</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">sn</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fig</span></div>
 
 
 
 <div class="viewcode-block" id="stitch_images">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.stitch_images">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">stitch_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stitch_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Stitch equal-sized Galsim image objects into a single composite image.</span>
 
 <span class="sd">    Parameters</span>
@@ -243,8 +243,8 @@
 <span class="sd">    images : sequence of galsim.Image</span>
 <span class="sd">        Images to stitch together. All images are expected to share the same</span>
 <span class="sd">        dimensions and pixel scale.</span>
-<span class="sd">    direction : {&quot;horizontal&quot;, &quot;vertical&quot;, &quot;square&quot;}, optional</span>
-<span class="sd">        Direction in which images are concatenated. ``&quot;square&quot;`` arranges the</span>
+<span class="sd">    direction : {"horizontal", "vertical", "square"}, optional</span>
+<span class="sd">        Direction in which images are concatenated. ``"square"`` arranges the</span>
 <span class="sd">        images on a square grid, leaving any unused cells blank.</span>
 <span class="sd">    spacing : None, optional</span>
 <span class="sd">        Placeholder for future gap support. Only ``None`` is currently</span>
@@ -255,7 +255,7 @@
 <span class="sd">    galsim.ImageF or None</span>
 <span class="sd">        Composite image when ``spacing`` is ``None`` and ``direction`` is</span>
 <span class="sd">        supported; otherwise ``None``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># read in sizes of the individual images</span>
     <span class="c1"># MUST BE SAME FOR ALL IMAGES RIGHT NOW</span>
     <span class="n">nx</span> <span class="o">=</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">xmax</span>
@@ -265,8 +265,8 @@
     <span class="c1"># Check is images should be stitched with no gap between them</span>
     <span class="k">if</span> <span class="n">spacing</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># Check for direction of stitching</span>
-        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">:</span>
-            <span class="c1"># Determine required size of final &#39;super&#39; image</span>
+        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"horizontal"</span><span class="p">:</span>
+            <span class="c1"># Determine required size of final 'super' image</span>
             <span class="c1"># And create an empty canvas to draw to</span>
             <span class="n">Nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)</span> <span class="o">*</span> <span class="n">nx</span>
             <span class="n">super_image</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">ImageF</span><span class="p">(</span><span class="n">Nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
@@ -283,8 +283,8 @@
             <span class="k">return</span> <span class="n">super_image</span>
 
         <span class="c1"># Same as above but for vertical stitching</span>
-        <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;vertical&quot;</span><span class="p">:</span>
-            <span class="c1"># Determine required size of final &#39;super&#39; image</span>
+        <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"vertical"</span><span class="p">:</span>
+            <span class="c1"># Determine required size of final 'super' image</span>
             <span class="c1"># And create an empty canvas to draw to</span>
             <span class="n">Ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)</span> <span class="o">*</span> <span class="n">ny</span>
             <span class="n">super_image</span> <span class="o">=</span> <span class="n">galsim</span><span class="o">.</span><span class="n">ImageF</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
@@ -300,7 +300,7 @@
                 <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># update for next iteration</span>
             <span class="k">return</span> <span class="n">super_image</span>
 
-        <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;square&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"square"</span><span class="p">:</span>
             <span class="n">nside</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">))))</span>
             <span class="n">Nx</span> <span class="o">=</span> <span class="n">nside</span> <span class="o">*</span> <span class="n">nx</span>
             <span class="n">Ny</span> <span class="o">=</span> <span class="n">nside</span> <span class="o">*</span> <span class="n">ny</span>
@@ -324,8 +324,8 @@
 
 <div class="viewcode-block" id="split_image">
 <a class="viewcode-back" href="../../autoapi/batsim/pltutil/index.html#batsim.pltutil.split_image">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">split_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">nsplit</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">split_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">nsplit</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Split a stitched GalSim image into equal-sized image stamps.</span>
 
 <span class="sd">    Parameters</span>
@@ -334,7 +334,7 @@
 <span class="sd">        Input image to split.</span>
 <span class="sd">    nsplit : int</span>
 <span class="sd">        Number of equal pieces to extract along the split direction.</span>
-<span class="sd">    direction : {&quot;horizontal&quot;, &quot;vertical&quot;}, optional</span>
+<span class="sd">    direction : {"horizontal", "vertical"}, optional</span>
 <span class="sd">        Axis along which the input image is split.</span>
 <span class="sd">    spacing : None, optional</span>
 <span class="sd">        Placeholder for future gap support. Only ``None`` is currently</span>
@@ -345,7 +345,7 @@
 <span class="sd">    list of galsim.ImageF or None</span>
 <span class="sd">        List of split images when ``spacing`` is ``None`` and ``direction`` is</span>
 <span class="sd">        supported; otherwise ``None``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="c1"># read in sizes of the image</span>
     <span class="n">Nx</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">xmax</span>
     <span class="n">Ny</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">ymax</span>
@@ -354,7 +354,7 @@
     <span class="c1"># Check if images have gaps between them</span>
     <span class="k">if</span> <span class="n">spacing</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># Check for direction of spliting</span>
-        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"horizontal"</span><span class="p">:</span>
             <span class="c1"># Determine required size of each split image</span>
             <span class="n">nx</span> <span class="o">=</span> <span class="n">Nx</span> <span class="o">/</span> <span class="n">nsplit</span>
             <span class="n">ny</span> <span class="o">=</span> <span class="n">Ny</span>
@@ -376,7 +376,7 @@
             <span class="k">return</span> <span class="n">split_images</span>
 
         <span class="c1"># Same as above but for vertical stitching</span>
-        <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;vertical&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"vertical"</span><span class="p">:</span>
             <span class="c1"># Determine required size of each split image</span>
             <span class="n">ny</span> <span class="o">=</span> <span class="n">Ny</span> <span class="o">/</span> <span class="n">nsplit</span>
             <span class="n">nx</span> <span class="o">=</span> <span class="n">Nx</span>

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>batsim.fft &mdash; batsim 0.0.0 documentation</title>
+  <title>batsim.fft &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -13,7 +13,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -73,7 +73,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for batsim.fft</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Fourier-space convolution and image extraction helpers.&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""Fourier-space convolution and image extraction helpers."""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
@@ -86,12 +86,12 @@
 <div class="viewcode-block" id="_center_crop_or_pad">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._center_crop_or_pad">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_center_crop_or_pad</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target_shape</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Centrally crop or zero-pad an array to the requested shape.</span>
 
 <span class="sd">    This is used after the internal simulation grid has been rendered so the</span>
-<span class="sd">    caller&#39;s requested output size is a centered view of the same simulation.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    caller's requested output size is a centered view of the same simulation.</span>
+<span class="sd">    """</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">target_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
     <span class="n">src_y</span><span class="p">,</span> <span class="n">src_x</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span>
@@ -117,17 +117,17 @@
 <div class="viewcode-block" id="_draw_centered_psf">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._draw_centered_psf">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_draw_centered_psf</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">psf_obj</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Draw the PSF on the full FFT grid.</span>
 
 <span class="sd">    Pixel convolution is not included here; the pixel response is applied</span>
 <span class="sd">    separately in Fourier space.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">psf_image</span> <span class="o">=</span> <span class="n">psf_obj</span><span class="o">.</span><span class="n">drawImage</span><span class="p">(</span>
         <span class="n">nx</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
         <span class="n">ny</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
         <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
-        <span class="n">method</span><span class="o">=</span><span class="s2">&quot;no_pixel&quot;</span><span class="p">,</span>
+        <span class="n">method</span><span class="o">=</span><span class="s2">"no_pixel"</span><span class="p">,</span>
         <span class="n">use_true_center</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span><span class="o">.</span><span class="n">array</span>
 
@@ -138,13 +138,13 @@
 <div class="viewcode-block" id="_rfft_centered_image">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._rfft_centered_image">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_rfft_centered_image</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">real_dtype</span><span class="p">,</span> <span class="n">complex_dtype</span><span class="p">,</span> <span class="n">center_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Compute rfft2(ifftshift(image)) without explicitly shifting the image.</span>
 
 <span class="sd">    The input image remains in the centred real-space convention. The phase</span>
 <span class="sd">    correction converts the spectrum to the convention that would have been</span>
 <span class="sd">    obtained by first applying np.fft.ifftshift(image).</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="n">image</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">real_dtype</span><span class="p">)</span>
@@ -162,12 +162,12 @@
 <div class="viewcode-block" id="_apply_centering_phase">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._apply_centering_phase">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_apply_centering_phase</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">center_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Apply the Fourier phase equivalent to np.fft.ifftshift before an FFT.</span>
 
 <span class="sd">    This avoids materialising a shifted real-space image, which is expensive</span>
 <span class="sd">    for very large supersampled stamps.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">center_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">center_index</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
 
@@ -192,11 +192,11 @@
 <div class="viewcode-block" id="_apply_pixel_response">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._apply_pixel_response">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_apply_pixel_response</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fine_scale</span><span class="p">,</span> <span class="n">pix_scale</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Apply the square-pixel Fourier response in-place on an rfft2 grid.</span>
 
 <span class="sd">    The response is separable, so this avoids allocating a full 2D pixel FFT.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">ky</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fine_scale</span><span class="p">)</span>
     <span class="n">kx</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fine_scale</span><span class="p">)</span>
 
@@ -214,14 +214,14 @@
 
 <div class="viewcode-block" id="_block_integration_response">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._block_integration_response">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">_block_integration_response</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">fine_scale</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;quadrature&quot;</span><span class="p">,</span> <span class="n">integration_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the 1D Fourier response introduced by block integration.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;exact_sinc&quot;</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_block_integration_response</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">fine_scale</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"quadrature"</span><span class="p">,</span> <span class="n">integration_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the 1D Fourier response introduced by block integration."""</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"exact_sinc"</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">fine_scale</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
 
-    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;quadrature&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"quadrature"</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">integration_order</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">integration_order</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;integration_order &gt; 1 is required for quadrature compensation.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"integration_order &gt; 1 is required for quadrature compensation."</span><span class="p">)</span>
 
         <span class="n">nodes</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">legendre</span><span class="o">.</span><span class="n">leggauss</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">integration_order</span><span class="p">))</span>
         <span class="n">offsets</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">nodes</span> <span class="o">*</span> <span class="n">fine_scale</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">k</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
@@ -232,7 +232,7 @@
         <span class="k">return</span> <span class="n">response</span>
 
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-        <span class="s2">&quot;Invalid block integration compensation mode &quot;</span> <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&#39;; must be &#39;quadrature&#39; or &#39;exact_sinc&#39;.&quot;</span>
+        <span class="s2">"Invalid block integration compensation mode "</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">'; must be 'quadrature' or 'exact_sinc'."</span>
     <span class="p">)</span></div>
 
 
@@ -245,10 +245,10 @@
     <span class="n">n</span><span class="p">,</span>
     <span class="n">fine_scale</span><span class="p">,</span>
     <span class="n">min_response</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;quadrature&quot;</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">"quadrature"</span><span class="p">,</span>
     <span class="n">integration_order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Remove the fine-pixel averaging response introduced by block integration.</span>
 
 <span class="sd">    Gauss-Legendre block integration approximates the mean surface brightness</span>
@@ -256,10 +256,10 @@
 <span class="sd">    Divide out this response within the represented Fourier band before</span>
 <span class="sd">    applying the physical PSF convolution.</span>
 
-<span class="sd">    ``mode=&quot;quadrature&quot;`` removes the discrete Gauss-Legendre transfer</span>
-<span class="sd">    function for the configured nodes and weights. ``mode=&quot;exact_sinc&quot;`` keeps</span>
+<span class="sd">    ``mode="quadrature"`` removes the discrete Gauss-Legendre transfer</span>
+<span class="sd">    function for the configured nodes and weights. ``mode="exact_sinc"`` keeps</span>
 <span class="sd">    the ideal top-hat response compensation available as an explicit option.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">ky</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fine_scale</span><span class="p">)</span>
     <span class="n">kx</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">xp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">fine_scale</span><span class="p">)</span>
 
@@ -294,18 +294,18 @@
 <div class="viewcode-block" id="_extract_centered_coarse_image">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._extract_centered_coarse_image">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_extract_centered_coarse_image</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="p">,</span> <span class="n">center_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return fftshift(image)[::downsample_ratio, ::downsample_ratio] without</span>
 <span class="sd">    explicitly materialising fftshift(image).</span>
 
 <span class="sd">    This keeps the expensive full-resolution image shift out of both GPU and</span>
 <span class="sd">    CPU memory paths. Only the already-downsampled coarse image is gathered.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">downsample_ratio</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;downsample_ratio must be &gt;= 1&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"downsample_ratio must be &gt;= 1"</span><span class="p">)</span>
 
     <span class="n">coarse_n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="n">s</span>
     <span class="k">if</span> <span class="n">center_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -316,8 +316,8 @@
     <span class="n">wrapped_center</span> <span class="o">=</span> <span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">center_index</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">wrapped_center</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">wrapped_center</span><span class="p">)):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;The fine-grid center is not aligned with integer FFT output pixels. &quot;</span>
-            <span class="s2">&quot;Use an even downsample_ratio, or use_true_center=False.&quot;</span>
+            <span class="s2">"The fine-grid center is not aligned with integer FFT output pixels. "</span>
+            <span class="s2">"Use an even downsample_ratio, or use_true_center=False."</span>
         <span class="p">)</span>
 
     <span class="n">wrapped_center</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">wrapped_center</span><span class="p">))</span>
@@ -338,19 +338,19 @@
 <div class="viewcode-block" id="_extract_centered_real_space_coarse_image">
 <a class="viewcode-back" href="../../autoapi/batsim/fft/index.html#batsim.fft._extract_centered_real_space_coarse_image">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">_extract_centered_real_space_coarse_image</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Extract the aligned coarse grid from a centred real-space fine image.</span>
 
 <span class="sd">    Unlike ``_extract_centered_coarse_image``, this is for images that have not</span>
 <span class="sd">    passed through an inverse FFT and therefore are already in spatial order.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">downsample_ratio</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;downsample_ratio must be &gt;= 1&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"downsample_ratio must be &gt;= 1"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">s</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fine image size must be divisible by downsample_ratio&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"fine image size must be divisible by downsample_ratio"</span><span class="p">)</span>
 
     <span class="n">coarse</span> <span class="o">=</span> <span class="n">image</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
 
@@ -374,22 +374,22 @@
     <span class="n">dtypes</span><span class="p">,</span>
     <span class="n">psf_mode</span><span class="p">,</span>
     <span class="n">integration_order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">integration_compensation_mode</span><span class="o">=</span><span class="s2">&quot;quadrature&quot;</span><span class="p">,</span>
+    <span class="n">integration_compensation_mode</span><span class="o">=</span><span class="s2">"quadrature"</span><span class="p">,</span>
     <span class="n">center_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">target_flux</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Convolve the sampled galaxy with PSF and/or pixel response using rFFT.</span>
 
 <span class="sd">    The expensive path avoids explicit fftshift/ifftshift operations. Instead:</span>
 <span class="sd">    - centred real-space images are converted by Fourier phase correction;</span>
 <span class="sd">    - the pixel response is applied separably in-place;</span>
-<span class="sd">    - the full fine-grid image is inverse FFT&#39;d, then downsampled in real space.</span>
+<span class="sd">    - the full fine-grid image is inverse FFT'd, then downsampled in real space.</span>
 
-<span class="sd">    ``psf_mode=&quot;kvalue&quot;`` samples GalSim&#39;s analytic Fourier PSF through the C++</span>
+<span class="sd">    ``psf_mode="kvalue"`` samples GalSim's analytic Fourier PSF through the C++</span>
 <span class="sd">    backend, avoiding a real-space PSF draw and an extra FFT.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">gal_prof</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">real_dtype</span><span class="p">,</span> <span class="n">complex_dtype</span> <span class="o">=</span> <span class="n">dtypes</span>
 
@@ -414,9 +414,9 @@
         <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
             <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Block integration compensation took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Block integration compensation took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">psf_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">psf_mode</span> <span class="o">==</span> <span class="s2">&quot;real&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">psf_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">psf_mode</span> <span class="o">==</span> <span class="s2">"real"</span><span class="p">:</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="k">if</span> <span class="n">profile</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="n">psf_image</span> <span class="o">=</span> <span class="n">_draw_centered_psf</span><span class="p">(</span>
             <span class="n">xp</span><span class="o">=</span><span class="n">xp</span><span class="p">,</span>
@@ -428,7 +428,7 @@
         <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
             <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Drawing and transferring PSF took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Drawing and transferring PSF took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
         <span class="n">psf_spectrum</span> <span class="o">=</span> <span class="n">_rfft_centered_image</span><span class="p">(</span>
             <span class="n">xp</span><span class="o">=</span><span class="n">xp</span><span class="p">,</span>
@@ -441,9 +441,9 @@
         <span class="n">spectrum</span> <span class="o">*=</span> <span class="n">psf_spectrum</span>
         <span class="k">del</span> <span class="n">psf_image</span><span class="p">,</span> <span class="n">psf_spectrum</span>
 
-    <span class="k">elif</span> <span class="n">psf_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">psf_mode</span> <span class="o">==</span> <span class="s2">&quot;kvalue&quot;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">psf_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">psf_mode</span> <span class="o">==</span> <span class="s2">"kvalue"</span><span class="p">:</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="k">if</span> <span class="n">profile</span> <span class="k">else</span> <span class="kc">None</span>
-        <span class="c1"># The compiled backend returns the analytic PSF on BATSim&#39;s rFFT grid,</span>
+        <span class="c1"># The compiled backend returns the analytic PSF on BATSim's rFFT grid,</span>
         <span class="c1"># matching the spectrum convention used for the sampled galaxy.</span>
         <span class="n">psf_spectrum</span> <span class="o">=</span> <span class="n">_sample_psf_spectrum</span><span class="p">(</span>
             <span class="n">psf_obj</span><span class="o">=</span><span class="n">psf_obj</span><span class="p">,</span>
@@ -454,23 +454,23 @@
 
         <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sampling PSF spectrum took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sampling PSF spectrum took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
         <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="k">if</span> <span class="n">profile</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="n">psf_spectrum</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">psf_spectrum</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">complex_dtype</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
             <span class="n">sync_if_gpu</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
             <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;GPU&quot;</span> <span class="k">if</span> <span class="n">xp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span> <span class="k">else</span> <span class="s2">&quot;NumPy&quot;</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transfer PSF spectrum to </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="s2">"GPU"</span> <span class="k">if</span> <span class="n">xp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span> <span class="k">else</span> <span class="s2">"NumPy"</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Transfer PSF spectrum to </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 
         <span class="n">spectrum</span> <span class="o">*=</span> <span class="n">psf_spectrum</span>
         <span class="k">del</span> <span class="n">psf_spectrum</span>
 
     <span class="k">elif</span> <span class="n">psf_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid psf_mode &#39;</span><span class="si">{</span><span class="n">psf_mode</span><span class="si">}</span><span class="s2">&#39;; must be &#39;real&#39; or &#39;kvalue&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid psf_mode '</span><span class="si">{</span><span class="n">psf_mode</span><span class="si">}</span><span class="s2">'; must be 'real' or 'kvalue'."</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">draw_method</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">draw_method</span> <span class="o">==</span> <span class="s2">"auto"</span><span class="p">:</span>
         <span class="n">_apply_pixel_response</span><span class="p">(</span>
             <span class="n">xp</span><span class="o">=</span><span class="n">xp</span><span class="p">,</span>
             <span class="n">spectrum</span><span class="o">=</span><span class="n">spectrum</span><span class="p">,</span>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>batsim &mdash; batsim 0.0.0 documentation</title>
+  <title>batsim &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
@@ -14,7 +14,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -211,6 +211,9 @@ be supplied.  If both are supplied, they must agree.</p></li>
 <li><p><strong>ngrid</strong> (<em>int</em><em>, </em><em>optional</em>) – Final square output size in pixels.  If omitted, BATSim chooses the
 output size from the GalSim object support at <code class="docutils literal notranslate"><span class="pre">scale</span></code>.</p></li>
 <li><p><strong>transform_obj</strong> (<em>object</em><em> or </em><em>sequence</em><em> of </em><em>objects</em><em>, </em><em>optional</em>) – Coordinate transform(s) applied before sampling the galaxy profile.
+If a sequence is provided, it must be in REVERSE PHYSICAL ORDER
+e.g. [LensTransform, IATransform] describes IA with subsequent lensing
+deflection. This is due to the ‘pull’ map implementation of the transforms.
 Each transform must provide <code class="docutils literal notranslate"><span class="pre">transform(coords)</span></code> where <code class="docutils literal notranslate"><span class="pre">coords</span></code> has
 shape <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">npoints)</span></code>.  Transforms with a <code class="docutils literal notranslate"><span class="pre">to_backend</span></code> method
 are moved to the selected array backend before use.</p></li>
@@ -489,7 +492,7 @@ callers.</p></li>
 Georgiou+19 best-fit value used by the existing pipeline.</p></li>
 <li><p><strong>phi</strong> (<em>float</em><em>, </em><em>optional</em>) – Alignment angle in radians. A value of zero aligns the distortion with
 the horizontal axis.</p></li>
-<li><p><strong>beta</strong> (<em>float</em><em>, </em><em>optional</em>) – Power-law index for the radial amplitude profile.</p></li>
+<li><p><strong>beta</strong> (<em>float</em><em>, </em><em>optional</em>) – Power-law index for the radial amplitude profile. Must not be negative.</p></li>
 <li><p><strong>center</strong> (<em>sequence</em><em> of </em><em>float</em><em>, </em><em>optional</em>) – Coordinate origin <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y]</span></code> for the radial profile. Defaults to
 <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code>.</p></li>
 <li><p><strong>clip_radius</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum radius, in units of <code class="docutils literal notranslate"><span class="pre">hlr</span></code>, used when evaluating the amplitude

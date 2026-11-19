@@ -372,7 +372,7 @@ class IaTransform(Transform):
         Alignment angle in radians. A value of zero aligns the distortion with
         the horizontal axis.
     beta : float, optional
-        Power-law index for the radial amplitude profile.
+        Power-law index for the radial amplitude profile. Must not be negative.
     center : sequence of float, optional
         Coordinate origin ``[x, y]`` for the radial profile. Defaults to
         ``[0, 0]``.
@@ -419,6 +419,10 @@ class IaTransform(Transform):
             Floating dtype for stored transform arrays.
         """
         super().__init__(center=center, backend=backend, dtype=dtype)
+
+        # Check if beta is negative; if yes, throw an error.
+        if beta < 0:
+            raise ValueError("In IATransform: beta must be >= 0'")
 
         # initialise important class variables
         self.A = A

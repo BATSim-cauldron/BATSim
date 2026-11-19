@@ -97,6 +97,9 @@ Package Contents
                  output size from the GalSim object support at ``scale``.
    :type ngrid: int, optional
    :param transform_obj: Coordinate transform(s) applied before sampling the galaxy profile.
+                         If a sequence is provided, it must be in REVERSE PHYSICAL ORDER
+                         e.g. [LensTransform, IATransform] describes IA with subsequent lensing
+                         deflection. This is due to the 'pull' map implementation of the transforms.
                          Each transform must provide ``transform(coords)`` where ``coords`` has
                          shape ``(2, npoints)``.  Transforms with a ``to_backend`` method
                          are moved to the selected array backend before use.
@@ -353,7 +356,7 @@ Package Contents
    :param phi: Alignment angle in radians. A value of zero aligns the distortion with
                the horizontal axis.
    :type phi: float, optional
-   :param beta: Power-law index for the radial amplitude profile.
+   :param beta: Power-law index for the radial amplitude profile. Must not be negative.
    :type beta: float, optional
    :param center: Coordinate origin ``[x, y]`` for the radial profile. Defaults to
                   ``[0, 0]``.

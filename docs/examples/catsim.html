@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CATSim &mdash; batsim 0.0.0 documentation</title>
+  <title>CATSim &mdash; batsim 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=7026087e"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -117,10 +117,10 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;cat.png&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-    <span class="n">cat_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;notebooks/CATSim&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"cat.png"</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">cat_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"notebooks/CATSim"</span><span class="p">)</span>
 
-<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;cat.png&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"cat.png"</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"L"</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">make_cat_galaxy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">)):</span>
@@ -130,13 +130,13 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">render_cat</span><span class="p">(</span><span class="n">galaxy</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="c1"># Render through BATSim&#39;s current public API.</span>
+    <span class="c1"># Render through BATSim's current public API.</span>
     <span class="k">return</span> <span class="n">batsim</span><span class="o">.</span><span class="n">simulate_galaxy</span><span class="p">(</span>
         <span class="n">galaxy</span><span class="p">,</span>
         <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">ngrid</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
         <span class="n">transform_obj</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span>
-        <span class="n">draw_method</span><span class="o">=</span><span class="s2">&quot;no_pixel&quot;</span><span class="p">,</span>
+        <span class="n">draw_method</span><span class="o">=</span><span class="s2">"no_pixel"</span><span class="p">,</span>
     <span class="p">)</span>
 <br/></pre></div>
 </div>
@@ -149,8 +149,8 @@
 <span class="n">cat_noshear</span> <span class="o">=</span> <span class="n">cat_gal</span><span class="o">.</span><span class="n">drawImage</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">array</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cat_noshear</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Unsheared cat&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;cat_noshear.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Unsheared cat"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"cat_noshear.png"</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -169,8 +169,8 @@
 <span class="n">cat_lensed</span> <span class="o">=</span> <span class="n">render_cat</span><span class="p">(</span><span class="n">cat_gal</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">lens</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cat_lensed</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Affine Lensing&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;lens_cat.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Affine Lensing"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"lens_cat.png"</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -189,9 +189,9 @@
 <span class="n">cat_IA</span> <span class="o">=</span> <span class="n">render_cat</span><span class="p">(</span><span class="n">cat_gal</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ia_cat</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cat_IA</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Intrinsic Alignment&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;&lt;--- Alignment Axis ---&gt;&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;IA_cat.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Intrinsic Alignment"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"&lt;--- Alignment Axis ---&gt;"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"IA_cat.png"</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -244,8 +244,8 @@
 <span class="n">cat_flex</span> <span class="o">=</span> <span class="n">render_cat</span><span class="p">(</span><span class="n">flex_cat_gal</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">felinexion</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cat_flex</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;F(e)l(ine)exion (strong)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;flex_cat.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"F(e)l(ine)exion (strong)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"flex_cat.png"</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -266,15 +266,15 @@
 
 <span class="k">if</span> <span class="n">fpfs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">shear</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Install fpfs to run the CATSim shear measurement cell.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Install fpfs to run the CATSim shear measurement cell."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">fp_task</span> <span class="o">=</span> <span class="n">fpfs</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">measure_source</span><span class="p">(</span><span class="n">psf_array</span><span class="p">,</span> <span class="n">pix_scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sigma_arcsec</span><span class="o">=</span><span class="mf">0.52</span><span class="p">)</span>
     <span class="n">measurements</span> <span class="o">=</span> <span class="n">fp_task</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">cat_lensed</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span>
     <span class="n">measurements</span> <span class="o">=</span> <span class="n">fp_task</span><span class="o">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
     <span class="n">ellipticities</span> <span class="o">=</span> <span class="n">fpfs</span><span class="o">.</span><span class="n">catalog</span><span class="o">.</span><span class="n">fpfs_m2e</span><span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">ellipticities</span><span class="p">[</span><span class="s2">&quot;fpfs_R1E&quot;</span><span class="p">])</span>
-    <span class="n">shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">ellipticities</span><span class="p">[</span><span class="s2">&quot;fpfs_e1&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">response</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;measured shear: </span><span class="si">%.6f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">shear</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">ellipticities</span><span class="p">[</span><span class="s2">"fpfs_R1E"</span><span class="p">])</span>
+    <span class="n">shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">ellipticities</span><span class="p">[</span><span class="s2">"fpfs_e1"</span><span class="p">])</span> <span class="o">/</span> <span class="n">response</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"measured shear: </span><span class="si">%.6f</span><span class="s2">"</span> <span class="o">%</span> <span class="n">shear</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -325,10 +325,10 @@ measured shear: 0.367881
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_paths</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;cat_noshear.png&quot;</span><span class="p">,</span>
-    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;lens_cat.png&quot;</span><span class="p">,</span>
-    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;IA_cat.png&quot;</span><span class="p">,</span>
-    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;flex_cat.png&quot;</span><span class="p">,</span>
+    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"cat_noshear.png"</span><span class="p">,</span>
+    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"lens_cat.png"</span><span class="p">,</span>
+    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"IA_cat.png"</span><span class="p">,</span>
+    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"flex_cat.png"</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">image_paths</span><span class="p">]</span>
@@ -336,12 +336,12 @@ measured shear: 0.367881
 
 <span class="n">gif_frames</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
-    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">Image</span><span class="o">.</span><span class="n">ADAPTIVE</span><span class="p">)</span>
-    <span class="n">img</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame_duration</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"P"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">Image</span><span class="o">.</span><span class="n">ADAPTIVE</span><span class="p">)</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s2">"duration"</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame_duration</span>
     <span class="n">gif_frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 
 <span class="n">gif_frames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
-    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">&quot;cat_shear.gif&quot;</span><span class="p">,</span>
+    <span class="n">cat_dir</span> <span class="o">/</span> <span class="s2">"cat_shear.gif"</span><span class="p">,</span>
     <span class="n">save_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">append_images</span><span class="o">=</span><span class="n">gif_frames</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
     <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>

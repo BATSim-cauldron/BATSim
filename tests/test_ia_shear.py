@@ -1,5 +1,6 @@
 import galsim
 import numpy as np
+import pytest
 
 import batsim
 
@@ -130,7 +131,29 @@ def test_ia_power_law_amplitude_is_hlr_normalized():
     assert outer_g1 > amplitude
 
 
+# Claude Code helped write the below test for exceptions under negative beta.
+
+NEGATIVE_BETAS = [-1.0e-6, -0.5]
+NON_NEGATIVE_BETAS = [0.0, 0, 1.0e-6, 0.8]
+
+
+@pytest.mark.parametrize("beta", NEGATIVE_BETAS)
+def test_ia_transform_rejects_negative_beta(beta):
+    with pytest.raises(ValueError, match="In IATransform: beta must be >= 0"):
+        batsim.IaTransform(A=0.2, beta=beta, phi=0.0, scale=0.2, hlr=1.4)
+
+
+@pytest.mark.parametrize("beta", NON_NEGATIVE_BETAS)
+def test_ia_transform_accepts_non_negative_beta(beta):
+    ia_transform = batsim.IaTransform(A=0.2, beta=beta, phi=0.0, scale=0.2, hlr=1.4)
+    assert ia_transform.beta == beta
+
+
 if __name__ == "__main__":
     test_beta_zero_ia_transform_uses_unit_determinant_reduced_shear_matrix()
     test_beta_zero_ia_render_matches_galsim_reduced_shear_moments()
     test_ia_power_law_amplitude_is_hlr_normalized()
+    for beta in NEGATIVE_BETAS:
+        test_ia_transform_rejects_negative_beta(beta)
+    for beta in NON_NEGATIVE_BETAS:
+        test_ia_transform_accepts_non_negative_beta(beta)
