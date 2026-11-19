@@ -130,6 +130,7 @@ def test_ia_power_law_amplitude_is_hlr_normalized():
     assert inner_g1 < amplitude
     assert outer_g1 > amplitude
 
+
 # Claude Code helped write the below test for exceptions under negative beta.
 
 NEGATIVE_BETAS = [-1.0e-6, -0.5]
